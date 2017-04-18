@@ -10,9 +10,9 @@ router.get('/:name', function(req, res, next) {
   })
 });
 
-// router.post('/', function(req,res,next){
-//
-// })
+router.post('/', function(req,res,next){
+
+})
 
 
 
