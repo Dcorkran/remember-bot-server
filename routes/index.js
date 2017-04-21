@@ -14,9 +14,9 @@ router.post('/', function(req,res,next){
   dbQueries.getDescriptionByName(req.body.name)
   .then((data)=>{
     if (!data.length) {
-      return dbQueries.addNewName(req.name,req.description)
+      return dbQueries.addNewName(req.body.name,req.body.description)
     } else {
-      return dbQueries.updateDescription(req.name,req.description)
+      return dbQueries.updateDescription(req.body.name,req.body.description)
     }
   })
   .then((response)=>{
