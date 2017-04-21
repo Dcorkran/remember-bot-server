@@ -11,7 +11,17 @@ router.get('/:name', function(req, res, next) {
 });
 
 router.post('/', function(req,res,next){
-
+  dbQueries.getDescriptionByName(req.body.name)
+  .then((data)=>{
+    if (!data.length) {
+      return dbQueries.addNewName(req.name,req.description)
+    } else {
+      return dbQueries.updateDescription(req.name,req.description)
+    }
+  })
+  .then((response)=>{
+    res.json('working');
+  })
 })
 
 
